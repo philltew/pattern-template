@@ -28,9 +28,9 @@
     "clean": "rimraf dist",
     "pretty": "npx prettier --write 'src/*.js'",
     "lint": "eslint --fix 'src/*.js'",
-    "browserbuild": "rollup -c rollup.js -o dist/browser.js -f iife -n freesewing_patterns_template --footer 'freesewing.patterns.template = freesewing_patterns_template;'",
-    "nodebuild": "rollup -c rollup.js -o dist/index.js -f cjs",
-    "modulebuild": "rollup -c rollup.js -o dist/index.mjs -f es",
+    "browserbuild": "rollup -c rollup.js -o dist/browser.js -f iife -m true -n freesewing_patterns_template --footer 'freesewing.patterns.template = freesewing_patterns_template;'",
+    "nodebuild": "rollup -c rollup.js -o dist/index.js -f cjs -m true",
+    "modulebuild": "rollup -c rollup.js -o dist/index.mjs -f es -m true",
     "build": "npm run clean && npm run browserbuild && npm run nodebuild && npm run modulebuild"
   },
   "husky": {
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@freesewing/plugin-bundle": "0.1.6",
-    "freesewing": "0.10.1"
+    "freesewing": "0.11.2"
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.56",

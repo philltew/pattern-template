@@ -3,6 +3,12 @@
 export default {
   name: "template",
   measurements: ["chestCircumference", "wristCircumference"],
+  dependencies: {
+    front: "back"
+  },
+  inject: {
+    front: "back"
+  },
   options: {
     // Constants
     foo: 4,

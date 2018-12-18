@@ -1,28 +1,26 @@
 import freesewing from "freesewing";
 import pluginBundle from "@freesewing/plugin-bundle";
-
 import config from "../config/config";
 import { version } from "../package.json";
+// Parts
+import draftBack from "./back";
+import draftFront from "./front";
 
-import back from "./back";
-import front from "./front";
+// Constructor boilerplate
+const Template = function(settings = false) {
+  freesewing.Pattern.call(this, { version: version, ...config });
+  this.with(pluginBundle);
+  if (settings !== false) this.mergeSettings(settings);
 
-var pattern = new freesewing.Pattern({ version: version, ...config }).with(
-  pluginBundle
-);
-
-pattern.draft = function() {
-  if (this.needs(["back", "front"]))
-    this.parts.back = this.draftBack(new pattern.Part());
-  if (this.needs(["front"]))
-    this.parts.front = this.draftFront(
-      new pattern.Part().copy(this.parts.back)
-    );
-
-  return pattern;
+  return this;
 };
 
-pattern.draftBack = part => back.draft(part);
-pattern.draftFront = part => front.draft(part);
+// Inheritance boilerplate
+Template.prototype = Object.create(freesewing.Pattern.prototype);
+Template.prototype.constructor = Template;
 
-export default pattern;
+// Attach per-part draft methods to prototype
+Template.prototype.draftBack = draftBack;
+Template.prototype.draftFront = draftFront;
+
+export default Template;

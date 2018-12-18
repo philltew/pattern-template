@@ -1,23 +1,8 @@
-import freesewing from "freesewing";
+export default function(part) {
+  /* Building on top of back, just need to change the text */
 
-var front = {
-  draft: function(part) {
-    // prettier-ignore
-    let {store, sa, Point, points, Path, paths, Snippet, snippets, options, measurements, final, paperless, macro} = part.shorthand();
+  part.paths.example.attributes.set("data-text", "This is the back part");
+  // Note: We didn't use shorthand here, the result is the same
 
-    // Building on top of back, just need to change the text
-    paths.example.attributes.set("data-text", "This is the back part");
-
-    // Final?
-    if (final) {
-    }
-
-    // Paperless?
-    if (paperless) {
-    }
-
-    return part;
-  }
-};
-
-export default front;
+  return part;
+}

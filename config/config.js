@@ -1,7 +1,10 @@
+import { version } from "../package.json";
+
 // See config syntax documentation at:
 // https://developer.freesewing.org/config/
 export default {
   name: "template",
+  version,
   measurements: ["chestCircumference", "wristCircumference"],
   dependencies: {
     front: "back"

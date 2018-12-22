@@ -1,21 +1,19 @@
 import freesewing from "freesewing";
-import pluginBundle from "@freesewing/plugin-bundle";
+import plugins from "@freesewing/plugin-bundle";
 import config from "../config/config";
-import { version } from "../package.json";
 // Parts
 import draftBack from "./back";
 import draftFront from "./front";
 
-// Constructor boilerplate
-const Template = function(settings = false) {
-  freesewing.Pattern.call(this, { version: version, ...config });
-  this.use(pluginBundle);
-  if (settings !== false) this.mergeSettings(settings);
+// Constructor
+const Template = function(settings) {
+  freesewing.Pattern.call(this, config);
+  this.use(plugins).apply(settings);
 
   return this;
 };
 
-// Inheritance boilerplate
+// Set up inheritance
 Template.prototype = Object.create(freesewing.Pattern.prototype);
 Template.prototype.constructor = Template;
 

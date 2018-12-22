@@ -9,7 +9,7 @@ import draftFront from "./front";
 // Constructor boilerplate
 const Template = function(settings = false) {
   freesewing.Pattern.call(this, { version: version, ...config });
-  this.with(pluginBundle);
+  this.use(pluginBundle);
   if (settings !== false) this.mergeSettings(settings);
 
   return this;

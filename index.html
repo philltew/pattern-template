@@ -18,10 +18,10 @@
     <script>
       // Instantiating pattern. Replace 'template' with your pattern name
       var pattern = new freesewing.patterns.template({ margin: 10 })
-        .with(freesewing.plugins.debug)
-        .with(freesewing.plugins.theme)
-        .with(freesewing.plugins.designer)
-        .with(freesewing.plugins.validate)
+        .use(freesewing.plugins.debug)
+        .use(freesewing.plugins.theme)
+        .use(freesewing.plugins.designer)
+        .use(freesewing.plugins.validate)
 
       pattern.draft();
       document.getElementById("svg").innerHTML = pattern.render();

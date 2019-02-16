@@ -5,10 +5,10 @@ import config from "../config";
 import draftBack from "./back";
 import draftFront from "./front";
 
-// Create pattern
-const Template = freesewing.create(config, plugins);
+// Create new design
+const Template = new freesewing.Design(config, plugins);
 
-// Attach per-part draft methods to prototype
+// Attach draft methods to prototype
 Template.prototype.draftBack = draftBack;
 Template.prototype.draftFront = draftFront;
 

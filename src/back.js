@@ -1,5 +1,5 @@
 export default function(part) {
-  let { Point, Path, points, paths, final, paperless } = part.shorthand();
+  let { Point, Path, points, paths, complete, paperless } = part.shorthand();
 
   points.start = new Point(0, 0);
   points.end = new Point(75, 0);
@@ -10,8 +10,8 @@ export default function(part) {
     .attr("data-text", "thisIsTheFrontPart")
     .attr("data-text-class", "center");
 
-  // Final?
-  if (final) {
+  // Complete?
+  if (complete) {
   }
 
   // Paperless?

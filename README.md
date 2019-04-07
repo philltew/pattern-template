@@ -20,12 +20,30 @@ It contains:
  - Your HTML preview also loads the theme, designer, validate, and debug plugins
  - Comes with both models and antman to test your patterns with
 
+## Prerquisites
+
+You need [Node](https://nodejs.org/), the JavaScript runtime. 
+Depending on your operating system, node may already be installed, 
+or you can [download node here](https://nodejs.org/en/download/).
+
+With node setup, you'll also need [rollup.js](https://rollupjs.org/), 
+and [nodemon](https://nodemon.io/).
+
+Rollup is the bundler that will package your code. Nodemon will help your 
+development by rebuilding your code when you make changes.
+
+If you already have these installed, carry on. If not, install them:
+
+```
+npm install -g rollup nodemon
+```
+
 ## Getting started
 
 Simply fork this repository, or download a local copy.
 Then, in its root directory run:
 
-```js
+```
 npm install
 ```
 

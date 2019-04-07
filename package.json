@@ -1,5 +1,5 @@
 {
-  "version": "0.3.6",
+  "version": "0.3.7",
   "name": "@freesewing/template",
   "description": "Freesewing pattern for template",
   "author": "Joost De Cock <joost@decock.org> (https://github.com/joostdecock)",
@@ -26,6 +26,7 @@
     "clean": "rimraf dist",
     "pretty": "npx prettier --write 'src/*.js'",
     "lint": "eslint --fix 'src/*.js'",
+    "watch": "nodemon -w src -w config --exec 'rollup -c rollup.config.js -o dist/browser.js -f iife -m true -n freesewing_patterns_florent --footer \"freesewing.patterns.template=freesewing_patterns_template;\"'",
     "browserbuild": "rollup -c rollup.config.js -o dist/browser.js -f iife -m true -n freesewing_patterns_template --footer \"freesewing.patterns.template = freesewing_patterns_template;\"",
     "nodebuild": "rollup -c rollup.config.js -o dist/index.js -f cjs -m true",
     "modulebuild": "rollup -c rollup.config.js -o dist/index.mjs -f es -m true",
